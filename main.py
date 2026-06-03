@@ -1,5 +1,6 @@
 from services.chat_service import ask_llm
-from services.weather_service import get_weather
+#from services.weather_service import get_weather
+from tools.weather_tool import get_weather
 from memory.chat_memory import messages
 from router.intent_router import is_weather_query
 
@@ -13,6 +14,7 @@ while True:
         break
 
     if is_weather_query(user_input):
+        #print("[Router] weather tool wokring") just to see the debug
 
         weather_info = get_weather()
 
@@ -30,6 +32,7 @@ Weather Data:
         })
 
     else:
+        #print("[router] normal chat")
 
         messages.append({
             "role": "user",
