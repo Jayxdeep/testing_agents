@@ -2,7 +2,7 @@ from services.chat_service import ask_llm
 from tools.weather_tool import get_weather
 from memory.chat_memory import messages
 from router.intent_router import is_weather_query
-
+from debug.debug_tools import show_memory
 print("Local AI Chat Started! Type 'exit' to quit.\n")
 
 while True:
@@ -12,8 +12,9 @@ while True:
     if user_input.lower() == "exit":
         print("Ending chat...")
         break
-
-    # WEATHER QUERY
+    if user_input.lower()=="/memory":
+        show_memory(messages)
+        continue
     if is_weather_query(user_input):
 
         weather_info = get_weather()
