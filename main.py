@@ -3,12 +3,14 @@ from tools.weather_tool import get_weather
 from memory.chat_memory import messages
 from router.intent_router import is_weather_query
 from debug.debug_tools import show_memory
+from router.intent_detector import detect_intents
 print("Local AI Chat Started! Type 'exit' to quit.\n")
 
 while True:
 
     user_input = input("You: ")
-
+    intents=detect_intents(user_input)
+    print(f"\nDetect intents:{intents}\n")
     if user_input.lower() == "exit":
         print("Ending chat...")
         break
