@@ -11,6 +11,6 @@ def get_weather():
     temp = data["current"]["temperature_2m"]
     humidity = data["current"]["relative_humidity_2m"]
     rain= data["current"]["rain"]
-    precipitation=data["current"]["percipitation"]
+    precipitation=data["current"]["precipitation"]
     cloud_cover=data["current"]["cloud_cover"]
     return f"""Temperature: {temp}°C, Humidity: {humidity}%,Rain: {rain}mm, Precipitation:{precipitation}mm, Cloud Cover:{cloud_cover}%"""
